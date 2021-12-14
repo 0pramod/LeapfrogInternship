@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main-container-wrapper {
+  font-family: "Mulish", sans-serif;
+  font-size: 12px;
+}
+h1 {
+  font-size: 26px;
+  padding-bottom: 12px;
+}
+h2 {
+  font-size: 18px;
+}
+h3 {
+  font-size: 16px;
+}
+h4 {
+  font-size: 14px;
+}
+
+li a {
+  text-decoration: none;
+}
+
+li a:hover {
+  border-bottom: 1px solid black;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+a {
+  font-size: 12px;
+}
