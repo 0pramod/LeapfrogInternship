@@ -34,7 +34,7 @@
                   id="search"
                   placeholder="Search by Team, Member, or Entry Title"
                 />
-                <div id="search-clear">
+                <div class="search-clear">
                   <img
                     src="images/search-clear.png"
                     height="9"
@@ -42,7 +42,7 @@
                     alt="search clear"
                   />
                 </div>
-                <div id="search-icon">
+                <div class="search-icon">
                   <img
                     src="images/mglass.png"
                     height="10"
@@ -71,12 +71,14 @@
       <!--Top nav starts-->
       <div class="top-nav">
         <div class="nav-container">
-          <ul class="menu left-float clearfix">
-            <li><a href="#">Create New Entry</a></li>
-            <li><a href="#">My Topic Boxes</a></li>
-            <li><a href="#">Friends</a></li>
-            <li><a href="#">Invite New Member</a></li>
-          </ul>
+          <div class="links">
+            <ul class="menu left-float clearfix">
+              <li><a href="#">Create New Entry</a></li>
+              <li><a href="#">My Topic Boxes</a></li>
+              <li><a href="#">Friends</a></li>
+              <li><a href="#">Invite New Member</a></li>
+            </ul>
+          </div>
 
           <ul class="right-float nav-right">
             <li>
@@ -96,7 +98,7 @@
 
       <!--Main container starts-->
       <div class="container">
-        <div class="left-nav">
+        <div class="left-nav links">
           <div class="left-nav-top">
             <div class="nav-headers">
               <h2>Recent Searches</h2>
@@ -110,21 +112,14 @@
                       Nick Cave and the <br />
                       Bad Seeds</a
                     >
-                    <img
-                      style="float: right; margin-left: 20px"
-                      src="images/download.png"
-                      alt=""
-                    />
+
+                    <img src="images/download.png" alt="" />
                   </span>
                 </li>
                 <li>
                   <span class="list-contains">
                     <a style="float: left" href="#"> African Animals</a>
-                    <img
-                      style="float: right"
-                      src="images/download.png"
-                      alt=""
-                    />
+                    <img src="images/download.png" alt="" />
                   </span>
                 </li>
               </ul>
@@ -200,7 +195,7 @@
                 <h4>All Entries</h4>
                 <div class="tab-link-wrapper clearfix">
                   <!-- <div class="tab-left-border"> </div> -->
-                  <div class="active tab-link left-float">
+                  <div class="tab-link left-float">
                     <a href="#">All Members</a>
                   </div>
                   <!-- <div class="tab-right-border"> </div> -->
@@ -237,10 +232,12 @@
                     </strong>
                   </p>
                 </a>
-                by <a class="text-blue" href=""> Alan Coe</a> | Februrary 10,
-                2012| <a class="text-green" href="">subscribed</a> <br />
-                From Topic Box:
-                <a class="text-blue" href=""> My Favourite Movies</a>
+                <small>
+                  by <a class="text-blue" href=""> Alan Coe</a> | Februrary 10,
+                  2012| <a class="text-green" href="">subscribed</a> <br />
+                  From Topic Box:
+                  <a class="text-blue" href=""> My Favourite Movies</a>
+                </small>
               </div>
             </div>
 
@@ -253,11 +250,14 @@
                 <a class="text-black" href="">
                   <p><strong> Blade Runner, The Director's Cut </strong></p>
                 </a>
-                by <a class="text-blue" href=""> Mary Pilot</a> | Februrary 8,
-                2012|
-                <br />
-                From Topic Box:
-                <a class="text-blue" href=""> Behind the Scene</a>
+                <small>
+                  by <a class="text-blue" href=""> Mary Pilot</a> | Februrary 8,
+                  2012
+                  <br />
+
+                  From Topic Box:
+                  <a class="text-blue" href=""> Behind the Scene</a>
+                </small>
               </div>
             </div>
 
@@ -274,11 +274,14 @@
                     <strong> The Best French Resturant in Chicago? </strong>
                   </p>
                 </a>
-                by <a class="text-blue" href=""> Jim Roy</a> | Februrary 7,
-                2012|
-                <br />
-                From Topic Box:
-                <a class="text-blue" href=""> Chicago Resturants Review</a>
+                <small>
+                  by <a class="text-blue" href=""> Jim Roy</a> | Februrary 7,
+                  2012
+                  <br />
+
+                  From Topic Box:
+                  <a class="text-blue" href=""> Chicago Resturants Review</a>
+                </small>
               </div>
             </div>
 
@@ -295,13 +298,15 @@
                     </strong>
                   </p>
                 </a>
-                by
-                <a class="text-blue" href="">
-                  John Peter Moise/a> | Februrary 7, 2012| </a
-                ><a class="text-green" href="">subscribed</a>
-                <br />
-                From Topic Box:
-                <a class="text-blue" href=""> Books read & Books to Read</a>
+                <small>
+                  by
+                  <a class="text-blue" href="">
+                    John Peter Moise/a> | Februrary 7, 2012| </a
+                  ><a class="text-green" href="">subscribed</a>
+                  <br />
+                  From Topic Box:
+                  <a class="text-blue" href=""> Books read & Books to Read</a>
+                </small>
               </div>
             </div>
 
@@ -316,11 +321,13 @@
                 <a class="text-black" href="">
                   <p><strong> Pea Pesto</strong></p>
                 </a>
-                by <a class="text-blue" href=""> Marianne Gig</a> | Februrary 7,
-                2012|
-                <br />
-                From Topic Box:
-                <a class="text-blue" href=""> Favourite Recipies</a>
+                <small>
+                  by <a class="text-blue" href=""> Marianne Gig</a> | Februrary
+                  7, 2012
+                  <br />
+                  From Topic Box:
+                  <a class="text-blue" href=""> Favourite Recipies</a>
+                </small>
               </div>
             </div>
           </div>
@@ -332,17 +339,19 @@
             <div class="nav-headers">
               <h2>Video Tutorials</h2>
             </div>
-            <ul>
-              <li><a href=""> Overview of TuTangle</a></li>
-              <li><a href=""> Searching the site</a></li>
-              <li><a href=""> Previous & Saved Searches</a></li>
-              <li><a href=""> The Topic Box Page</a></li>
-              <li><a href=""> Creating a Topic Box</a></li>
-              <li><a href=""> View Topic Box Entries</a></li>
-              <li><a href=""> Creating an Entry</a></li>
-              <li><a href=""> Privacy Settings</a></li>
-              <li><a href=""> Co-Authoring</a></li>
-            </ul>
+            <div class="links">
+              <ul>
+                <li><a href=""> Overview of TuTangle</a></li>
+                <li><a href=""> Searching the site</a></li>
+                <li><a href=""> Previous & Saved Searches</a></li>
+                <li><a href=""> The Topic Box Page</a></li>
+                <li><a href=""> Creating a Topic Box</a></li>
+                <li><a href=""> View Topic Box Entries</a></li>
+                <li><a href=""> Creating an Entry</a></li>
+                <li><a href=""> Privacy Settings</a></li>
+                <li><a href=""> Co-Authoring</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
