@@ -117,8 +117,18 @@ li a:hover {
   margin-top: 15px;
 }
 
+.nav-container {
+  width: 937px;
+  height: 41px;
+  margin: 0 auto;
+}
+
 .menu {
+  margin: 0 auto;
   font-size: 12px;
+}
+.menu ul li {
+  padding: 0 15px;
 }
 
 .menu li:hover {
@@ -139,9 +149,6 @@ li a:hover {
 
 .nav-right img {
   margin-right: 5px;
-}
-.nav-container {
-  width: 937px;
 }
 
 .nav-right span {
@@ -177,10 +184,6 @@ li a:hover {
   cursor: pointer;
 }
 
-.tab-header-frame {
-  height: 65px;
-}
-
 /* /////// */
 
 .left-nav li a:hover,
@@ -190,8 +193,8 @@ li a:hover {
 .search {
   float: left;
   margin-top: 37px;
-  margin-left: 27px;
-  margin-right: 27px;
+  margin-left: 67px;
+  margin-right: 170px;
 }
 #search {
   background-color: #cceff7;
@@ -202,12 +205,12 @@ li a:hover {
   font-size: 10px;
 }
 #search-clear {
-  padding: 4px;
+  padding: 1px 1px;
   background-color: #cceff7;
   float: left;
 }
 #search-icon {
-  padding: 5px 4px 3px;
+  padding: 0 7px 2px;
   background-color: #cceff7;
   float: left;
   margin-left: 1px;
@@ -217,7 +220,7 @@ li a:hover {
   float: left;
   background: url(../images/search-bar.png);
   background-repeat: no-repeat;
-  padding: 0px 7px;
+  padding: 1px 7px;
 }
 .search-btn {
   padding: 4px 11px;
