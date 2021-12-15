@@ -76,7 +76,7 @@ header {
   .content-wrapper,
   .container,
   .containts,
-  .footer-contains {
+  .header-content .footer-contains {
     width: 480px;
     height: 100%;
   }
