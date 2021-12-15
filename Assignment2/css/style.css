@@ -49,6 +49,7 @@ li {
   height: 71px;
 }
 .text-area {
+  padding-left: 18%;
   height: 71px;
   width: 443px;
 }
@@ -326,5 +327,8 @@ li a:hover {
   .header-right,
   .nav-right {
     display: none;
+  }
+  .image-block {
+    margin-left: 25px;
   }
 }
