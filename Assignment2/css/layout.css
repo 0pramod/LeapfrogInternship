@@ -1,9 +1,10 @@
 .content-wrapper {
+  min-width: 1002px;
   max-height: 837px;
 }
 header {
   height: 85px;
-  width: 100%;
+
   background: #7dd9e8;
 }
 .header-content {
@@ -72,11 +73,12 @@ header {
 
 /* Mobile view <= 480px */
 
-@media only screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .content-wrapper,
   .container,
   .containts,
-  .header-content .footer-contains {
+  .header-content,
+  .footer-contains {
     width: 480px;
     height: 100%;
   }
