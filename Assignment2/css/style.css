@@ -294,6 +294,10 @@ li a:hover {
   float: right;
 }
 
+.mobile-view {
+  display: none;
+}
+
 /* tabletview at 768px width */
 
 @media (max-width: 768px) {
@@ -330,5 +334,17 @@ li a:hover {
   }
   .image-block {
     margin-left: 25px;
+  }
+  .mobile-view {
+    display: block;
+    margin: 25px;
+    margin-left: 100px;
+  }
+  .icon {
+    margin-left: 10px;
+  }
+  .icon1 {
+    margin-right: 5px;
+    margin-bottom: 10px;
   }
 }
