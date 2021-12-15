@@ -58,8 +58,12 @@ header {
   }
 }
 
+@media (min-width: 768px) {
+  .content-wrapper {
+    min-width: 1002px;
+  }
+}
 @media (max-width: 768px) {
-  .content-wrapper,
   .container,
   .footer-contains {
     width: 768px;
@@ -77,10 +81,6 @@ header {
   .footer-contains {
     width: 480px;
     height: 100%;
-  }
-
-  .content-wrapper {
-    font-size: 16px;
   }
 
   .container {

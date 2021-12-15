@@ -244,8 +244,7 @@ li a:hover {
 .tab-types {
   float: left;
   background-color: #f5f5f5;
-  width: 258px;
-  position: relative;
+  width: 100%;
 }
 .tab-types:last-child {
   float: right;
@@ -302,11 +301,22 @@ li a:hover {
   }
 }
 
+@media (min-width: 768px) {
+  .tab-types {
+    width: 258px;
+  }
+}
+
 /* Mobile view 480px */
 
 @media (max-width: 480px) {
   .nav-container {
     width: 480px;
+  }
+
+  .img-block {
+    margin-left: 10px;
+    float: none;
   }
   .search,
   .header-right,
