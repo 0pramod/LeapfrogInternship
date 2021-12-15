@@ -35,7 +35,7 @@ li {
 }
 
 .main {
-  height: 67px;
+  height: 11.037%;
   background: #f5f5f5;
 }
 
@@ -317,6 +317,10 @@ li a:hover {
   .img-block {
     margin-left: 10px;
     float: none;
+  }
+
+  .nav-tabs {
+    margin-bottom: 5%;
   }
   .search,
   .header-right,
