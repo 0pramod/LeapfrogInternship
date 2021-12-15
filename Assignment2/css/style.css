@@ -296,7 +296,7 @@ li a:hover {
 
 /* tabletview at 768px width */
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .nav-container {
     width: 768px;
   }
@@ -304,11 +304,13 @@ li a:hover {
 
 /* Mobile view 480px */
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
   .nav-container {
     width: 480px;
   }
-  .search {
+  .search,
+  .header-right,
+  .nav-right {
     display: none;
   }
 }
