@@ -58,16 +58,24 @@ header {
   }
 }
 
-@media (min-width: 768px) {
-  .content-wrapper {
-    min-width: 1002px;
-  }
-}
 @media (max-width: 768px) {
+  .content-wrapper,
+  .header-content,
   .container,
   .footer-contains {
     width: 768px;
     height: 100%;
+  }
+
+  .left-nav {
+    margin: 5px;
+    width: 30%;
+  }
+  .containts {
+    width: 63%;
+  }
+  .right-nav {
+    display: none;
   }
 }
 

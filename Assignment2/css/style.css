@@ -304,6 +304,30 @@ li a:hover {
   .nav-container {
     width: 768px;
   }
+
+  .search,
+  .header-right {
+    display: none;
+  }
+  .image-block {
+    margin-left: 25px;
+  }
+  .mobile-view {
+    display: block;
+    margin: 25px;
+    margin-left: 400px;
+  }
+  .icon {
+    margin-left: 10px;
+  }
+  .icon1 {
+    margin-right: 5px;
+    margin-bottom: 15px;
+  }
+  .top-nav {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }
 
 @media (min-width: 768px) {
