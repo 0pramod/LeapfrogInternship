@@ -56,6 +56,84 @@
   }
   /*  */
 
+  .download-app {
+    padding-top: 60px;
+    padding-bottom: 120px;
+  }
+  .download-app-text {
+    float: left;
+    width: 50%;
+  }
+
+  .download-app-img {
+    padding-left: 28px;
+    float: right;
+    width: 50%;
+    margin-top: 10%;
+  }
+
+  .ho-to-use {
+    padding-bottom: 200px;
+  }
+  /* .use-app .section-heading{
+        width: 450px;
+    } */
+  .video {
+    width: 70%;
+    height: 45%;
+    bottom: -20%;
+  }
+  /* */
+
+  .profiles {
+    margin-top: 15%;
+    margin-bottom: 120px;
+  }
+  .profiles h3 {
+    font-size: 20px;
+    line-height: 30px;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+  .profiles h5 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  .profile-card {
+    display: inline-block;
+    width: 30%;
+    margin-top: 32px;
+    margin-right: 3%;
+    /* vertical-align: top; */
+  }
+  .profile-card:last-child {
+    margin-right: 0px;
+  }
+  .profile-card img {
+    width: 178px;
+    height: 178px;
+  }
+  .profile-card h3 {
+    padding-top: 11px;
+  }
+
+  .customers {
+    padding: 120px 0;
+  }
+  .customers .section-heading h4 {
+    width: auto;
+  }
+  .customer-card {
+    max-width: 450px;
+  }
+  .customer-card h4 {
+    font-size: 25px;
+    line-height: 37.5px;
+  }
+
+  /**/
+
   .blog {
     padding: 120px 0;
   }
