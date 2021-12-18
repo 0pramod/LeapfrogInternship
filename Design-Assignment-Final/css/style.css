@@ -251,7 +251,38 @@
   float: left;
   margin-right: 2rem;
 }
+.menu-tab li {
+  list-style: none;
+  float: left;
+  margin-right: 2rem;
+}
+.menu-tab-r li {
+  float: right;
+  list-style: none;
+  margin-right: 2rem;
+}
 
+.menu-tab-r li button:first-child {
+  background: #5956e9;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.menu-tab,
+.menu-tab-r {
+  display: block;
+}
+.menu-tab {
+  position: absolute;
+  top: 0px;
+}
+
+.menu-tab-r {
+  position: absolute;
+  top: 1.25rem;
+  right: 0;
+}
 .float-left {
   float: left;
 }

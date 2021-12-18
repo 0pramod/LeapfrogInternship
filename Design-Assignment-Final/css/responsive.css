@@ -38,21 +38,43 @@
     margin-right: -20%;
     overflow: hidden;
   }
-  .left-side {
+  .about-body img {
     float: left;
-    clear: left;
+    width: 35%;
+    margin: 0;
+  }
+
+  .text-area-groups {
+    width: 65%;
+    float: right;
+    padding: 0px;
+    padding-left: 60px;
+  }
+
+  .left-side {
+    max-width: 20%;
+    margin-right: 0;
+    float: left;
     text-align: right;
+  }
+  .left-side:after {
+    content: "";
+    clear: both;
+    display: table;
   }
 
   .right-side {
+    max-width: 20%;
+    margin-left: 0;
     float: right;
-    clear: right;
+
     text-align: left;
   }
 
   .app-image {
     filter: drop-shadow(10px 10px 100px rgba(24, 48, 63, 0.3));
     border-radius: 40px;
+    max-width: 30%;
   }
   /*  */
 
