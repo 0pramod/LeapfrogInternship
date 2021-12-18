@@ -1,0 +1,112 @@
+html {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+h3 {
+  font-size: 31.25px;
+  line-height: 47.3px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+h4 {
+  font-size: 25px;
+  line-height: 37.5px;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+p {
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.whole-content {
+}
+
+.hero {
+  background-image: url("../images/BackgroundImage.png");
+  margin-bottom: 3.5rem;
+  overflow: hidden;
+}
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.about {
+}
+.about-body {
+  position: relative;
+  overflow: hidden;
+}
+
+.help {
+  background-image: url("../images/desktop.png");
+  min-height: 2230px;
+  overflow: auto;
+}
+.slideshow-div {
+  margin: 60px auto;
+}
+.download-app {
+  margin: 0 20px;
+}
+
+.how-to-use {
+  background: #5956e9;
+  padding-top: 60px;
+  padding-bottom: 40p;
+}
+.profiles {
+  margin-top: 35%;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.customers {
+  padding: 60px 0;
+  background-image: url("../images/background3.png");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.blog {
+  padding: 60px 0;
+  background-color: white;
+}
+
+footer {
+  background-color: #232233;
+}
+
+/*     */
+
+/*      */
+
+/* media queries */
+
+@media (min-width: 480px) {
+}
+
+@media (min-width: 768px) {
+  .whole-content {
+    max-width: 100%;
+  }
+}
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 1024px;
+  }
+}
