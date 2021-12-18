@@ -294,15 +294,18 @@
 }
 
 .slideshow {
+  text-align: center;
   position: relative;
   display: inline-block;
   overflow: hidden;
+  min-width: 100%;
 }
 
 .img1 {
   max-width: 200%;
   overflow: hidden;
-  margin: 0 -40%;
+  margin-left: -20%;
+  margin-right: -20%;
 }
 
 .dots {
