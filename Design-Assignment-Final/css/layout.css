@@ -94,19 +94,3 @@ footer {
 /*     */
 
 /*      */
-
-/* media queries */
-
-@media (min-width: 480px) {
-}
-
-@media (min-width: 768px) {
-  .whole-content {
-    max-width: 100%;
-  }
-}
-@media (min-width: 1024px) {
-  .hero {
-    min-height: 1024px;
-  }
-}

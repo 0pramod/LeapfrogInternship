@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,27 +58,50 @@
           </ul>
         </div>
 
-        <div class="menu">
-          <div class="logo">
-            <img src="images/Logo41.png" alt="APPOLLY" />
-          </div>
+        <header>
+          <div class="menu clearfix">
+            <div class="rectangle1">
+              <div class="menu-icon float-left">
+                <svg
+                  width="18"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"
+                    fill="#232233"
+                  />
+                </svg>
+              </div>
+              <div class="menu-tab float-left">
+                <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Features</a></li>
+                </ul>
+              </div>
+            </div>
 
-          <div class="rectangle1">
-            <svg
-              width="18"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"
-                fill="#232233"
-              />
-            </svg>
-            <div class="download"><button>DOWNLOAD</button></div>
+            <div class="rectangle2 clearfix float-right">
+              <div class="menu-tab float-left">
+                <ul>
+                  <li><a href="#">Screenshot</a></li>
+                  <li><a href="#">Blog</a></li>
+                </ul>
+              </div>
+
+              <div class="download-button">
+                <a href="#">Download</a>
+              </div>
+            </div>
+
+            <div class="logo">
+              <img src="images/Logo41.png" alt="APPOLLY" />
+            </div>
           </div>
-        </div>
+        </header>
 
         <div class="hero-container clearfix">
           <div class="border-box"></div>
@@ -103,9 +127,7 @@
             alt="mobile-image"
           />
           <img class="for-tab" src="images/mobile-tab.png" alt="mobile-image" />
-          <!--
-            <img class="for-web" src="images/mobile-web.png" alt="mobile-web" />
-          -->
+          <img class="for-web" src="images/mobile-web1.png" alt="mobile-web" />
         </div>
       </div>
 
