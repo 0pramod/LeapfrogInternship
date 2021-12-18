@@ -5,7 +5,13 @@
   .whole-content {
     max-width: 100%;
   }
-
+  .download-app {
+    margin-bottom: 20rem;
+  }
+  .menu-tab,
+  .menu-tab-r {
+    display: block;
+  }
   .contacts {
     width: 91.45%;
     display: inline-block;
