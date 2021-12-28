@@ -33,8 +33,9 @@ class ant {
     this.element.style.background = " url('images/ant.png')";
     this.element.style.backgroundSize = "contain";
     this.element.addEventListener("click", () => {
-      //this.element.style.background = "blue";
-      this.element.style.display = "none";
+      this.element.remove();
+      let remainingAnts = ants.filter((ants, ant) => ant !== this);
+      ants = remainingAnts;
     });
 
     mainDiv.appendChild(this.element);
