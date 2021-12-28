@@ -47,7 +47,7 @@ class ball {
     this.checkWallCollision = function () {
       if (this.x < 0) {
         this.vx = Math.abs(this.vx) * this.restitution;
-        this.x = this.radius;
+        this.x = 0;
       } else if (this.x > boxWidth - 2 * this.radius) {
         this.vx = -Math.abs(this.vx) * this.restitution;
         this.x = boxWidth - 2 * this.radius;
@@ -55,7 +55,7 @@ class ball {
 
       if (this.y < 0) {
         this.vy = Math.abs(this.vy) * this.restitution;
-        this.y = this.radius;
+        this.y = 0;
       } else if (this.y > boxHeight - 2 * this.radius) {
         this.vy = -Math.abs(this.vy) * this.restitution;
         this.y = boxHeight - 2 * this.radius;
