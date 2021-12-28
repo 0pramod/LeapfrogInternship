@@ -1,6 +1,6 @@
 var mainDiv = document.getElementById("container");
 var boxWidth = 1200;
-var boxHeight = 800;
+var boxHeight = 600;
 mainDiv.style.width = boxWidth + "px";
 mainDiv.style.height = boxHeight + "px";
 mainDiv.style.color = "#49c";
@@ -45,7 +45,7 @@ class ball {
     }, 1000 / fps);
 
     this.checkWallCollision = function () {
-      if (this.x < this.radius) {
+      if (this.x < 0) {
         this.vx = Math.abs(this.vx) * this.restitution;
         this.x = this.radius;
       } else if (this.x > boxWidth - 2 * this.radius) {
@@ -53,7 +53,7 @@ class ball {
         this.x = boxWidth - 2 * this.radius;
       }
 
-      if (this.y < this.radius) {
+      if (this.y < 0) {
         this.vy = Math.abs(this.vy) * this.restitution;
         this.y = this.radius;
       } else if (this.y > boxHeight - 2 * this.radius) {
