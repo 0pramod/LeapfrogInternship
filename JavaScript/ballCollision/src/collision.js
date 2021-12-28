@@ -80,28 +80,27 @@ class ball {
           let vCollisionNorm = {
             x: vCollision.x / distance,
             y: vCollision.y / distance,
-          }; // noraml vector. need to calculate relative velocity
-
+          };
           let vRelativeVelocity = {
             x: this.vx - element.vx,
             y: this.vy - element.vy,
-          }; // relative velocity. differece between the velocities
+          };
           let speed =
             vRelativeVelocity.x * vCollisionNorm.x +
-            vRelativeVelocity.y * vCollisionNorm.y; // calucate speed. vector * normal gives scalar quantity
+            vRelativeVelocity.y * vCollisionNorm.y;
 
           // to prevent overlap
           if (speed > 0) {
-            let impulse = (2 * speed) / (this.mass + element.mass); // impulse is the force that produces change in momemtum
+            let impulse = (2 * speed) / (this.mass + element.mass);
 
             this.vx -=
-              impulse * element.mass * vCollisionNorm.x * this.restitution; // multpiply collision vector by impulse of the element
+              impulse * element.mass * vCollisionNorm.x * this.restitution;
             this.vy -=
-              impulse * element.mass * vCollisionNorm.y * this.restitution; // multpiply collision vector by impulse of the element
+              impulse * element.mass * vCollisionNorm.y * this.restitution;
             element.vx +=
-              impulse * this.mass * vCollisionNorm.x * this.restitution; // multpiply collision vector by impulse of the element
+              impulse * this.mass * vCollisionNorm.x * this.restitution;
             element.vy +=
-              impulse * this.mass * vCollisionNorm.y * this.restitution; // multpiply collision vector by impulse of the element
+              impulse * this.mass * vCollisionNorm.y * this.restitution;
           }
         }
       }
