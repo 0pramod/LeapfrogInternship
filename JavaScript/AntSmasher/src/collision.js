@@ -11,7 +11,6 @@ mainDiv.style.background = "white";
 const fps = 60;
 class ant {
   constructor() {
-    this.sig = sig;
     this.x = getRandomInt(0, boxWidth);
     this.y = getRandomInt(0, boxHeight);
     this.dx = getDirection();
