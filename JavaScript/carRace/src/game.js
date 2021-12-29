@@ -9,12 +9,11 @@ canvas.style.border = "solid 2px";
 let score = 0;
 let possibleXPositions = [50, 250, 450];
 let possibleYPositions = [-100, -300, -400];
-let speed = 1;
-let gamePaused = true;
+let speed = 5;
+
 let playerCarPositionX = 250;
-let playerCarPositionY = canvas.height - 100;
-let tick = 0;
-let canShoot = false;
+let playerCarPositionY = canvas.height - 150;
+
 var gameOver;
 
 function drawRoad() {
@@ -54,9 +53,11 @@ class obstacle {
 
   checkCollision = () => {
     cars.forEach((element) => {
-      if (element.x == playerCarPositionX && element.y > canvas.height - 100) {
+      if (element.x == playerCarPositionX && element.y > canvas.height - 250) {
         document.getElementById("text").innerHTML = "collision";
         document.getElementById("your-score").innerHTML = score;
+        element.y = getRandomElement(possibleYPositions);
+        score = 0;
         gameOver = true;
         document.getElementById("restart").style.display = "block";
       }
