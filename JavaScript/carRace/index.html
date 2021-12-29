@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Race</title>
+  </head>
+  <body>
+    <div id="main">
+      <div id="start">
+        <div class="contains">
+          <h2>Use Arrow Keys To move</h2>
+          <button id="start-button">press to start</button>
+        </div>
+      </div>
+      <div id="restart">
+        <div class="contains">
+          <h1>Your Score:</h1>
+          <h1 id="your-score"></h1>
+          <h1 id="high-score"></h1>
+          <button id="restart-button">Play Again!</button>
+        </div>
+      </div>
+
+      <div id="text"></div>
+      <div class="score-card">
+        <h1>Score</h1>
+
+        <h2 id="score"></h2>
+      </div>
+
+      <canvas id="box"></canvas>
+    </div>
+    <script src="src/utils.js"></script>
+    <script src="src/game.js"></script>
+  </body>
+</html>
