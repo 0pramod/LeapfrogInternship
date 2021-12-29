@@ -86,12 +86,14 @@ function drawPlayer() {
 document.addEventListener("keydown", (e) => {
   if (e.code === "ArrowLeft") {
     if (playerCarPositionX == 250 || playerCarPositionX == 450) {
-      playerCarPositionX -= 200;
+      //playerCarPositionX -= 200;
+      animate(-1, playerCarPositionX);
     }
   }
 
   if (e.code === "ArrowRight" && playerCarPositionX < 450) {
-    playerCarPositionX += 200;
+    //playerCarPositionX += 200;
+    animate(1, playerCarPositionX);
   }
 });
 
@@ -109,6 +111,16 @@ const gameLoop = () => {
   }
 };
 
+function animate(direction, currentPosition) {
+  var shift = setInterval(() => {
+    playerCarPositionX += direction * speed;
+    //console.log(currentPosition);
+
+    if (Math.abs(playerCarPositionX - currentPosition) == 200) {
+      clearInterval(shift);
+    }
+  }, 1);
+}
 var start = document.getElementById("start-button");
 start.addEventListener("click", () => startGame());
 
