@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#start {
+  background-image: url("images/back.jpg");
+  background-size: cover;
+  width: 810px;
+  height: 610px;
+  border-radius: 10px;
+  background: whitesmoke;
+  position: absolute;
+  padding-top: 300px;
+  left: 24.89%;
+  top: 4.8%;
+  text-align: center;
+  z-index: 1;
+}
+.contains {
+  margin-top: 100px;
+}
+#box {
+  position: absolute;
+  top: 5%;
+  left: 25%;
+  z-index: -1;
+}
+#restart {
+  width: 810px;
+  height: 610px;
+  border-radius: 10px;
+  background: whitesmoke;
+  position: absolute;
+  padding-top: 300px;
+  left: 24.89%;
+  top: 4.8%;
+  text-align: center;
+  z-index: 3;
+  display: none;
+}
+#score-card {
+  width: 200px;
+  border-radius: 10px;
+  background: whitesmoke;
+  position: absolute;
+  margin-left: 10%;
+  text-align: center;
+  top: 5%;
+  display: none;
+}
+button {
+  font-size: 16px;
+  margin: 30px auto;
+  padding: 10px;
+  border-radius: 5px;
+  background: chocolate;
+}
