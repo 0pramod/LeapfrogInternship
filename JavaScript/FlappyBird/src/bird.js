@@ -20,7 +20,8 @@ let minGap = 100;
 let maxGap = 250;
 
 var score = 0;
-var highScore = 0;
+var highScore = localStorage.getItem("highScore");
+
 collision = false;
 
 //
@@ -105,12 +106,10 @@ function game() {
 
         //collision
         if (pipePositionX <= birdWidth && pipePositionX >= 0) {
-          //console.log("pipe");
           if (
             birdPositionY <= topPipeHeight ||
             birdPositionY >= gap + topPipeHeight
           ) {
-            //console.log("collision");
             collision = true;
             document.getElementById("your-score").innerHTML = score;
             score = 0;
@@ -145,7 +144,7 @@ function game() {
   function restartGame() {
     document.getElementById("restart").style.display = "none";
     document.getElementById("score-card").style.display = "block";
-    console.log("testing");
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     collision = false;
     score = 0;
@@ -153,7 +152,8 @@ function game() {
     pipes();
   }
 }
-console.log(highScore);
+localStorage.setItem("highScore", highScore);
+document.getElementById("high-score").innerHTML = highScore;
 
 var start = document.getElementById("start-button");
 start.addEventListener("click", () => startGame());
