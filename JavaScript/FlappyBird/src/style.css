@@ -6,15 +6,15 @@
 
 #start {
   background-image: url("images/back.jpg");
-  background-size: cover;
+  background-size: fill;
   width: 810px;
   height: 610px;
   border-radius: 10px;
-  background: whitesmoke;
+
   position: absolute;
   padding-top: 300px;
-  left: 24.89%;
-  top: 4.8%;
+  left: 22%;
+  top: 4.5%;
   text-align: center;
   z-index: 1;
 }
@@ -28,14 +28,15 @@
   z-index: -1;
 }
 #restart {
+  background-image: url("images/back.jpg");
   width: 810px;
   height: 610px;
   border-radius: 10px;
-  background: whitesmoke;
+
   position: absolute;
   padding-top: 10%;
-  left: 24.89%;
-  top: 4.8%;
+  left: 22%;
+  top: 4.5%;
   text-align: center;
   z-index: 3;
   display: none;
