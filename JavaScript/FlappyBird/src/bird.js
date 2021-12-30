@@ -21,6 +21,7 @@ let maxGap = 250;
 
 var score = 0;
 var highScore = localStorage.getItem("highScore");
+if (highScore == null) highScore = 0;
 
 collision = false;
 
