@@ -1,7 +1,5 @@
-function getDirection() {
-  return Math.random() > 0.5 ? 1 : -1;
-}
 let score = 0;
+let carromPocketd = 0;
 
 // striker id = 0
 // queen id =1
@@ -17,18 +15,19 @@ canvas.style.backgroundSize = "contain";
 canvas.style.position = "absolute";
 canvas.style.top = "30px";
 canvas.style.left = "500px";
-canvas.style.border = "20px solid #7eb900";
+canvas.style.border = "20px solid brown";
 //canvas.style.borderRadius = "20px";
 let strikerPower = 10;
 
 //
 player1Active = false;
 player2Active = false;
-
+let activePlayer = 1;
 class Player {
   constructor(id, active) {
     this.carromId = id;
     this.active = active;
+    this.score = 0;
   }
   update = () => {
     this.active = this.active;
@@ -38,7 +37,6 @@ class Player {
 let player1 = new Player(2, false);
 let player2 = new Player(3, false);
 
-//
 const pocketRadius = 30;
 const carromRadius = 15;
 class Pockets {
@@ -128,25 +126,24 @@ class Carrom {
 }
 
 var whiteCarroms = [
-  new Carrom(3, 220, 300, 15, "#f0ffff"),
-  new Carrom(3, 260, 300, 15, "#f0ffff"),
-  new Carrom(3, 300, 300, 15, "#f0ffff"),
-  new Carrom(3, 340, 300, 15, "#f0ffff"),
-  new Carrom(3, 390, 300, 15, "#f0ffff"),
+  new Carrom(3, 220, 280, 15, "#f0ffff"),
+  new Carrom(3, 260, 280, 15, "#f0ffff"),
+  new Carrom(3, 300, 260, 15, "#f0ffff"),
+  new Carrom(3, 340, 280, 15, "#f0ffff"),
+  new Carrom(3, 390, 280, 15, "#f0ffff"),
 ];
 
-let queen = new Carrom(1, 300, 260, 15, "red");
+let queen = new Carrom(1, 300, 300, 15, "red");
 var blackCarroms = [
-  new Carrom(2, 220, 350, 15, "black"),
-  new Carrom(2, 260, 350, 15, "black"),
+  new Carrom(2, 220, 320, 15, "black"),
+  new Carrom(2, 260, 320, 15, "black"),
   new Carrom(2, 300, 350, 15, "black"),
-  new Carrom(2, 340, 350, 15, "black"),
-  new Carrom(2, 390, 350, 15, "black"),
+  new Carrom(2, 340, 320, 15, "black"),
+  new Carrom(2, 390, 320, 15, "black"),
 ];
 
 const striker = new Carrom(0, 300, 520, 20, "blue");
 var balls = whiteCarroms.concat(blackCarroms, queen, striker);
-console.log(balls);
 
 ///
 
@@ -204,45 +201,33 @@ checkBallCollision = function () {
   });
 };
 ///
-
 let checkPockets = () => {
   //console.log("in");
   balls.forEach((element) => {
     //pocket1
-    if (element.xPos < 2 * pocketRadius && element.yPos < 2 * pocketRadius) {
-      console.log("pocket");
-      if (element.id != 0) {
-        if (element.id != 1) {
-          balls = balls.filter((carrom) => carrom != element);
-          if (element.id == player1.carromId) score++;
-        } else if ((element.id = 1)) {
-          let count = countPlayerCarrom(element.id);
-          if (count == 0) {
-            balls = balls.filter((carrom) => carrom != element);
-            score++;
-          } else {
-            setTimeout(() => {
-              (element.xPos = 300), (element.yPos = 300);
-            }, 4000);
-          }
-        }
-      }
-    }
     if (
-      element.xPos < 2 * pocketRadius &&
-      element.yPos > canvas.height - 2 * pocketRadius
+      (element.xPos < 2 * pocketRadius && element.yPos < 2 * pocketRadius) ||
+      (element.xPos < 2 * pocketRadius &&
+        element.yPos > canvas.height - 2 * pocketRadius) ||
+      (element.xPos > canvas.width - 2 * pocketRadius &&
+        element.yPos < 2 * pocketRadius) ||
+      (element.xPos > canvas.width - 2 * pocketRadius &&
+        element.yPos > canvas.height - 2 * pocketRadius)
     ) {
-      console.log("pocket");
-
+      //console.log("pocket");
       if (element.id != 0) {
         if (element.id != 1) {
           balls = balls.filter((carrom) => carrom != element);
-          if (element.id == player1.carromId) score++;
+          if (element.id == player1.carromId) {
+            score++;
+            carromPocketd++;
+          }
         } else if ((element.id = 1)) {
           let count = countPlayerCarrom(element.id);
           if (count == 0) {
             balls = balls.filter((carrom) => carrom != element);
             score++;
+            carromPocketd++;
           } else {
             setTimeout(() => {
               (element.xPos = 300), (element.yPos = 300);
@@ -250,55 +235,8 @@ let checkPockets = () => {
           }
         }
       }
+    } else {
     }
-    if (
-      element.xPos > canvas.width - 2 * pocketRadius &&
-      element.yPos < 2 * pocketRadius
-    ) {
-      console.log("pocket");
-
-      if (element.id != 0) {
-        if (element.id != 1) {
-          balls = balls.filter((carrom) => carrom != element);
-          if (element.id == player1.carromId) score++;
-        } else if ((element.id = 1)) {
-          let count = countPlayerCarrom(element.id);
-          if (count == 0) {
-            balls = balls.filter((carrom) => carrom != element);
-            score++;
-          } else {
-            setTimeout(() => {
-              (element.xPos = 300), (element.yPos = 300);
-            }, 4000);
-          }
-        }
-      }
-    }
-    if (
-      element.xPos > canvas.width - 2 * pocketRadius &&
-      element.yPos > canvas.height - 2 * pocketRadius
-    ) {
-      console.log("pocket");
-
-      if (element.id != 0) {
-        if (element.id != 1) {
-          balls = balls.filter((carrom) => carrom != element);
-          if (element.id == player1.carromId) score++;
-        } else if ((element.id = 1)) {
-          let count = countPlayerCarrom(element.id);
-          if (count == 0) {
-            balls = balls.filter((carrom) => carrom != element);
-            score++;
-          } else {
-            setTimeout(() => {
-              (element.xPos = 300), (element.yPos = 300);
-            }, 4000);
-          }
-        }
-      }
-    }
-
-    //
   });
 };
 
@@ -314,30 +252,30 @@ document.addEventListener("keydown", (event) => {
   if (event.code === "ArrowUp") {
     if (strikerPower == 20) return;
     strikerPower++;
-    console.log(strikerPower);
+    //console.log(strikerPower);
   }
   if (event.code == "ArrowDown") {
     if (strikerPower == 1) return;
     strikerPower--;
-    console.log(strikerPower);
+    //console.log(strikerPower);
   }
   if (event.code == "ArrowRight") {
     striker.xPos = striker.xPos + 5;
-    console.log(striker.xPos);
+    //console.log(striker.xPos);
   }
   if (event.code == "ArrowLeft") {
     striker.xPos = striker.xPos - 5;
-    console.log(striker.xPos);
+    //console.log(striker.xPos);
   }
   if (event.code == "KeyA") {
     if (striker.angle < 0) return;
     striker.angle -= (15 * Math.PI) / 180;
-    console.log(striker.angle);
+    //console.log(striker.angle);
   }
   if (event.code == "KeyD") {
     if (striker.angel == Math.PI) return;
     striker.angle += (15 * Math.PI) / 180;
-    console.log(striker.angle);
+    //console.log(striker.angle);
   }
   if (event.code == "Space") {
     strike();
@@ -355,9 +293,19 @@ let strike = () => {
   const myTimeout = setTimeout(changeStrikerPosition, 5000);
 
   function changeStrikerPosition() {
-    striker.xPos = 300;
-    striker.yPos = 520;
-    striker.angle = (90 * Math.PI) / 180;
+    //console.log(carromPocketd);
+    if (carromPocketd === 0) swapPlayer();
+
+    if (activePlayer == 2) {
+      striker.xPos = 300;
+      striker.yPos = 80;
+      striker.angle = (270 * Math.PI) / 180;
+    }
+    if (activePlayer == 1) {
+      striker.xPos = 300;
+      striker.yPos = 520;
+      striker.angle = (90 * Math.PI) / 180;
+    }
   }
   //let motion = setInterval(() => {
   //strikerPower -= 0.1;
@@ -370,7 +318,12 @@ let strike = () => {
   // }
   //}, 10);
 };
+let swapPlayer = () => {
+  let currentPlayer = activePlayer;
+  if (currentPlayer == 1) activePlayer = 2;
 
+  if (currentPlayer == 2) activePlayer = 1;
+};
 function game() {
   document.getElementById("score").innerHTML = score;
 
