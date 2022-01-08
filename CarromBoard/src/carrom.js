@@ -1,4 +1,4 @@
-let score = 0;
+//let score = 0;
 let carromPocketd = 0;
 
 // striker id = 0
@@ -22,21 +22,30 @@ let strikerPower = 10;
 //
 player1Active = false;
 player2Active = false;
-let activePlayer = 1;
+
 class Player {
-  constructor(id, active) {
-    this.carromId = id;
+  constructor(id, carromId, carromColor, active) {
+    this.id = id;
+    this.carromId = carromId;
+    this.carromColor = carromColor;
     this.active = active;
     this.score = 0;
   }
   update = () => {
-    this.active = this.active;
+    //this.active = this.active;
   };
 }
 
-let player1 = new Player(2, false);
-let player2 = new Player(3, false);
+let player1 = new Player(1, 2, "black", true);
+let player2 = new Player(2, 3, "white", false);
 
+let players = [player1, player2];
+
+let activePlayer = player1;
+let opponent = player2;
+//
+
+//
 const pocketRadius = 30;
 const carromRadius = 15;
 class Pockets {
@@ -215,27 +224,61 @@ let checkPockets = () => {
         element.yPos > canvas.height - 2 * pocketRadius)
     ) {
       //console.log("pocket");
+      let activePlayerCarromCount = countPlayerCarrom(activePlayer.carromId);
       if (element.id != 0) {
         if (element.id != 1) {
           balls = balls.filter((carrom) => carrom != element);
-          if (element.id == player1.carromId) {
-            score++;
+          if (element.id == activePlayer.carromId) {
+            activePlayer.score++;
             carromPocketd++;
           }
+          if (element.id == opponent.carromId) {
+            opponent.score++;
+            if (activePlayerCarromCount != 5) {
+              activePlayer.score--;
+              let addCarromForFoul = new Carrom(
+                activePlayer.carromId,
+                300,
+                300,
+                carromRadius,
+                activePlayer.carromColor
+              );
+              console.log("foul");
+              //console.log(addCarromForFoul);
+              setTimeout(() => {
+                balls.push(addCarromForFoul);
+              }, 4000);
+            }
+          }
         } else if ((element.id = 1)) {
-          let count = countPlayerCarrom(element.id);
-          if (count == 0) {
+          //let activePlayerCarromCount = countPlayerCarrom(activePlayer.carromId);
+          if (activePlayerCarromCount == 0) {
             balls = balls.filter((carrom) => carrom != element);
-            score++;
+            activePlayer.score++;
+            console.log("Game over");
             carromPocketd++;
           } else {
+            carromPocketd++;
+            //let holdCarrom = element;
+            balls = balls.filter((carrom) => carrom != element);
+
             setTimeout(() => {
-              (element.xPos = 300), (element.yPos = 300);
+              balls.push(new Carrom(1, 300, 300, carromRadius, "red"));
+              // element.xPos = 300;
+              // element.yPos = 300;
             }, 4000);
           }
         }
+      } else {
+        let holdStriker = element;
+        balls = balls.filter((carrom) => carrom != element);
+        carromPocketd = 0;
+        setTimeout(() => {
+          holdStriker.vx = 0;
+          holdStriker.vy = 0;
+          balls.push(holdStriker);
+        }, 5000);
       }
-    } else {
     }
   });
 };
@@ -293,39 +336,47 @@ let strike = () => {
   const myTimeout = setTimeout(changeStrikerPosition, 5000);
 
   function changeStrikerPosition() {
-    //console.log(carromPocketd);
     if (carromPocketd === 0) swapPlayer();
+    carromPocketd = 0;
 
-    if (activePlayer == 2) {
+    if (activePlayer.id == 2) {
       striker.xPos = 300;
       striker.yPos = 80;
       striker.angle = (270 * Math.PI) / 180;
     }
-    if (activePlayer == 1) {
+    if (activePlayer.id == 1) {
       striker.xPos = 300;
       striker.yPos = 520;
       striker.angle = (90 * Math.PI) / 180;
     }
   }
-  //let motion = setInterval(() => {
-  //strikerPower -= 0.1;
-
-  // striker.xPos -= striker.vx;
-  // striker.yPos -= striker.vy;
-
-  // if (strikerPower <= 1) {
-  //   // clearInterval(motion);
-  // }
-  //}, 10);
 };
 let swapPlayer = () => {
-  let currentPlayer = activePlayer;
-  if (currentPlayer == 1) activePlayer = 2;
-
-  if (currentPlayer == 2) activePlayer = 1;
+  players.forEach((player) => {
+    if (player.active == true) {
+      player.active = false;
+    } else {
+      player.active = true;
+    }
+  });
+  //console.log(`id: ${players[0].id} and active: ${players[0].active}`);
+  currentPlayer();
 };
+
+let currentPlayer = () => {
+  let activePlayerArray = players.filter((player) => player.active != false);
+  activePlayer = activePlayerArray[0];
+  let opponentArray = players.filter((player) => player.active != true);
+  opponent = opponentArray[0];
+
+  //return activePlayerArray[0];
+  //console.log(tt);
+};
+
+////////////////////////
 function game() {
-  document.getElementById("score").innerHTML = score;
+  document.getElementById("score").innerHTML = player1.score;
+  document.getElementById("score2").innerHTML = player2.score;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawPockets();
