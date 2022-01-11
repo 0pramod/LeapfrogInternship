@@ -1,4 +1,3 @@
-//let score = 0;
 let carromPocketd = 0;
 
 // striker id = 0
@@ -19,7 +18,6 @@ canvas.style.border = "20px solid brown";
 //canvas.style.borderRadius = "20px";
 let strikerPower = 10;
 
-//
 player1Active = false;
 player2Active = false;
 
@@ -43,9 +41,7 @@ let players = [player1, player2];
 
 let activePlayer = player1;
 let opponent = player2;
-//
 
-//
 const pocketRadius = 30;
 const carromRadius = 15;
 class Pockets {
@@ -75,7 +71,6 @@ let drawPockets = () => {
 
 class Carrom {
   constructor(id, xPos, yPos, radius, color) {
-    //this.type = type;
     this.id = id;
     this.angle = (90 * Math.PI) / 180;
     this.moveAngle = 0;
@@ -95,25 +90,19 @@ class Carrom {
   draw = () => {
     ctx.beginPath();
     ctx.translate(this.x, this.y);
-    //ctx.rotate(this.angle);
+
     ctx.arc(this.xPos, this.yPos, this.radius, 0, 2 * Math.PI);
     ctx.fillStyle = this.color;
     ctx.fill();
     ctx.stroke();
   };
   update = () => {
-    //if (Math.abs(this.vy) > 0.5) {
     this.speed = strikerPower;
     this.vx -= this.vx * 0.01;
     this.vy -= this.vy * 0.01;
     this.xPos += this.vx;
     this.yPos += this.vy;
-    //}
   };
-
-  //
-
-  //
 
   checkWallCollision = () => {
     if (this.xPos <= this.radius) {
@@ -154,12 +143,9 @@ var blackCarroms = [
 const striker = new Carrom(0, 300, 520, 20, "blue");
 var balls = whiteCarroms.concat(blackCarroms, queen, striker);
 
-///
-
 checkBallCollision = function () {
   balls.forEach((element) => {
     if (element.color == "blue") {
-      ////console.log(element);
     }
     balls.forEach((test) => {
       if (element !== test) {
@@ -168,8 +154,6 @@ checkBallCollision = function () {
         var distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
 
         if (distance <= test.radius + element.radius) {
-          //console.log("collision");
-
           let vCollision = {
             x: element.xPos - test.xPos,
             y: element.yPos - test.yPos,
@@ -209,11 +193,9 @@ checkBallCollision = function () {
     });
   });
 };
-///
+
 let checkPockets = () => {
-  //console.log("in");
   balls.forEach((element) => {
-    //pocket1
     if (
       (element.xPos < 2 * pocketRadius && element.yPos < 2 * pocketRadius) ||
       (element.xPos < 2 * pocketRadius &&
@@ -223,7 +205,6 @@ let checkPockets = () => {
       (element.xPos > canvas.width - 2 * pocketRadius &&
         element.yPos > canvas.height - 2 * pocketRadius)
     ) {
-      //console.log("pocket");
       let activePlayerCarromCount = countPlayerCarrom(activePlayer.carromId);
       if (element.id != 0) {
         if (element.id != 1) {
@@ -244,14 +225,13 @@ let checkPockets = () => {
                 activePlayer.carromColor
               );
               console.log("foul");
-              //console.log(addCarromForFoul);
+
               setTimeout(() => {
                 balls.push(addCarromForFoul);
               }, 4000);
             }
           }
         } else if ((element.id = 1)) {
-          //let activePlayerCarromCount = countPlayerCarrom(activePlayer.carromId);
           if (activePlayerCarromCount == 0) {
             balls = balls.filter((carrom) => carrom != element);
             activePlayer.score++;
@@ -259,13 +239,11 @@ let checkPockets = () => {
             carromPocketd++;
           } else {
             carromPocketd++;
-            //let holdCarrom = element;
+
             balls = balls.filter((carrom) => carrom != element);
 
             setTimeout(() => {
               balls.push(new Carrom(1, 300, 300, carromRadius, "red"));
-              // element.xPos = 300;
-              // element.yPos = 300;
             }, 4000);
           }
         }
@@ -295,34 +273,27 @@ document.addEventListener("keydown", (event) => {
   if (event.code === "ArrowUp") {
     if (strikerPower == 20) return;
     strikerPower++;
-    //console.log(strikerPower);
   }
   if (event.code == "ArrowDown") {
     if (strikerPower == 1) return;
     strikerPower--;
-    //console.log(strikerPower);
   }
   if (event.code == "ArrowRight") {
     striker.xPos = striker.xPos + 5;
-    //console.log(striker.xPos);
   }
   if (event.code == "ArrowLeft") {
     striker.xPos = striker.xPos - 5;
-    //console.log(striker.xPos);
   }
   if (event.code == "KeyA") {
     if (striker.angle < 0) return;
     striker.angle -= (15 * Math.PI) / 180;
-    //console.log(striker.angle);
   }
   if (event.code == "KeyD") {
     if (striker.angel == Math.PI) return;
     striker.angle += (15 * Math.PI) / 180;
-    //console.log(striker.angle);
   }
   if (event.code == "Space") {
     strike();
-    //console.log(striker.angle);
   }
 });
 
@@ -359,7 +330,7 @@ let swapPlayer = () => {
       player.active = true;
     }
   });
-  //console.log(`id: ${players[0].id} and active: ${players[0].active}`);
+
   currentPlayer();
 };
 
@@ -368,12 +339,8 @@ let currentPlayer = () => {
   activePlayer = activePlayerArray[0];
   let opponentArray = players.filter((player) => player.active != true);
   opponent = opponentArray[0];
-
-  //return activePlayerArray[0];
-  //console.log(tt);
 };
 
-////////////////////////
 function game() {
   document.getElementById("score").innerHTML = player1.score;
   document.getElementById("score2").innerHTML = player2.score;
@@ -384,16 +351,13 @@ function game() {
 
   balls.forEach((element) => {
     element.draw();
-    //if (Math.abs(element.vx) > 0.2 || Math.abs(element.vy) > 0.2) {
+
     element.update();
     if (Math.abs(striker.vx) != 0) {
-      //console.log(`vx:${striker.vx}`);
     }
     if (Math.abs(striker.vy) != 0) {
-      //console.log(`vy:${striker.vy}`);
     }
-    //}
-    //element.update();
+
     element.checkWallCollision();
   });
   checkPockets();
