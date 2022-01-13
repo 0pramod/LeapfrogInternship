@@ -2,13 +2,6 @@
  * Event Listeners for different events
  */
 
-canvas.addEventListener("click", (event) => {
-  let mousePosition = event.clientX - canvasLeftPosition;
-  if (canStrike == false) return;
-  if (mousePosition <= 120 || mousePosition >= 480) return;
-  striker.xPos = event.clientX - canvasLeftPosition;
-});
-
 document.addEventListener("keydown", (event) => {
   if (canStrike == false) return;
   if (event.code === "ArrowUp") {
@@ -21,21 +14,48 @@ document.addEventListener("keydown", (event) => {
   }
   if (event.code == "ArrowRight") {
     if (striker.xPos >= 480) return;
-    striker.xPos = striker.xPos + 5;
+    striker.xPos = striker.xPos + 10;
   }
   if (event.code == "ArrowLeft") {
     if (striker.xPos <= 120) return;
-    striker.xPos = striker.xPos - 5;
-  }
-  if (event.code == "KeyA") {
-    if (striker.angle < 0) return;
-    striker.angle -= (15 * Math.PI) / 180;
-  }
-  if (event.code == "KeyD") {
-    if (striker.angel == Math.PI) return;
-    striker.angle += (15 * Math.PI) / 180;
+    striker.xPos = striker.xPos - 10;
   }
   if (event.code == "Space") {
     strike();
   }
+});
+
+/**
+ * Event listners for calculating direction of striker movement
+ */
+canvas.addEventListener("click", (event) => {
+  let mousePositionX =
+    event.clientX - canvasLeftPosition - 20; /** 20- for canvas border*/
+  let mousePositionY = event.clientY - canvasTopPosition - 20;
+  if (canStrike == false) return;
+  if (striker.yPos > 500) {
+    /** 500- to represent striker position at the bottom side */
+    if (mousePositionY < 500) {
+      striker.angle = calcAngleForStrike2(mousePositionX, mousePositionY);
+    }
+  }
+  if (striker.yPos < 100) {
+    /** 100- to represent striker position at the top side */
+    if (mousePositionY > 100) {
+      striker.angle = calcAngleForStrike1(mousePositionX, mousePositionY);
+    }
+  }
+});
+
+const restartBtn = document.getElementById("restart");
+const restartBtn1 = document.getElementById("restart1");
+
+restartBtn.addEventListener("click", (event) => {
+  restartGame();
+  popUpForGameOver.style.display = "none";
+  canvas.style.opacity = "1";
+  powerMeter.style.display = "block";
+});
+restartBtn1.addEventListener("click", (event) => {
+  restartGame();
 });

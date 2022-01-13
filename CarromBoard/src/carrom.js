@@ -8,9 +8,10 @@
  * @function update -used to update the carroms positions diuring the game
  * @function checkWallCollision - checks carrom collision with the walls of the carrom board
  */
-
 class Carrom {
   constructor(id, xPos, yPos, radius, color) {
+    this.initialPositionX = xPos;
+    this.initialPositionY = yPos;
     this.id = id;
     this.angle = (90 * Math.PI) / 180;
     this.xPos = xPos;
@@ -29,14 +30,13 @@ class Carrom {
     ctx.translate(this.x, this.y);
     ctx.arc(this.xPos, this.yPos, this.radius, 0, 2 * Math.PI);
     ctx.fillStyle = this.color;
-
     ctx.fill();
-
     ctx.stroke();
   };
+
   update = () => {
     this.speed = strikerPower;
-    this.vx -= this.vx * 0.01;
+    this.vx -= this.vx * 0.01; // to factor in friction
     this.vy -= this.vy * 0.01;
     this.xPos += this.vx;
     this.yPos += this.vy;
@@ -78,4 +78,5 @@ var blackCarroms = [
 ];
 
 const striker = new Carrom(strikerCarromId, 300, 520, 20, "blue");
-var allCarroms = whiteCarroms.concat(blackCarroms, queen, striker);
+let allCarromsInitialStates = whiteCarroms.concat(blackCarroms, queen, striker); // holds all carroms initial states
+var allCarroms = whiteCarroms.concat(blackCarroms, queen, striker); // list of carrom with frequent updates throughout the game

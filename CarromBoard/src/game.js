@@ -7,17 +7,20 @@ let initaiteGamePlayPage = () => {
   scoreBoard1.style.display = "block";
   scoreBoard2.style.display = "block";
   powerMeter.style.display = "block";
+  powerText.style.display = "block";
+  btnHolder.style.display = "block";
+  document.getElementById(
+    "displayGameMode"
+  ).innerHTML = `Game Mode: ${gameMode}`;
 };
 
 /**
  * @function - to select game as per the choosen game mode and players type
  * @param {string} gameMode - defines the Selected game mode to play
  * @param {string} playType - defines if the user has selected player vs player or player vs bot
- * @param {function} checkPockets - is assigned the function to check pockets if a carrom is pocketed or not 
+ * @param {function} checkPockets - is assigned the function to check pockets if a carrom is pocketed or not
  *                                    accourding to the rules for the game mode selected
  * @param {finction} botPossibleMove -is assigned the finction for bot for the  game mode selected
-   
- }}
  */
 let startGame = () => {
   if (gameMode == "blackAndWhite") {
@@ -58,6 +61,8 @@ let startGame = () => {
       opponent = bot;
       gameLoop = setInterval(game, 1000 / 144);
     }
+    document.getElementById("carromColor1").style.display = "none";
+    document.getElementById("carromColor2").style.display = "none";
   }
 };
 

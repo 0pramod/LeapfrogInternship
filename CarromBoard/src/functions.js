@@ -1,138 +1,3 @@
-/**Function to check if a carrom is pocketed following the rules of the game mode Black and White
- * @param {number} activePlayerCarromCount - number of active users carrom on the board
- * @param {object} addCarromForFoul - object of a carrom to be added on the board in case of foul
- */
-let checkPocketsForBlackAndWhite = () => {
-  allCarroms.forEach((element) => {
-    if (
-      (element.xPos < 2 * pocketRadius && element.yPos < 2 * pocketRadius) ||
-      (element.xPos < 2 * pocketRadius &&
-        element.yPos > canvas.height - 2 * pocketRadius) ||
-      (element.xPos > canvas.width - 2 * pocketRadius &&
-        element.yPos < 2 * pocketRadius) ||
-      (element.xPos > canvas.width - 2 * pocketRadius &&
-        element.yPos > canvas.height - 2 * pocketRadius)
-    ) {
-      let activePlayerCarromCount = countPlayerCarrom(activePlayer.carromId);
-      if (element.id != 0) {
-        if (element.id != 1) {
-          allCarroms = allCarroms.filter((carrom) => carrom != element);
-          if (element.id == activePlayer.carromId) {
-            activePlayer.score++;
-            carromPocketd++;
-          }
-          if (element.id == opponent.carromId) {
-            opponent.score++;
-            if (activePlayerCarromCount != 5) {
-              activePlayer.score--;
-              let addCarromForFoul = new Carrom(
-                activePlayer.carromId,
-                300,
-                300,
-                carromRadius,
-                activePlayer.carromColor
-              );
-              //console.log("foul");
-              setTimeout(() => {
-                allCarroms.push(addCarromForFoul);
-              }, 4000);
-            }
-          }
-        } else if ((element.id = 1)) {
-          if (activePlayerCarromCount == 0) {
-            allCarroms = allCarroms.filter((carrom) => carrom != element);
-            activePlayer.score++;
-            //console.log("Game over");
-            setTimeout(() => {
-              gameOver();
-            }, 1000);
-            carromPocketd++;
-          } else {
-            carromPocketd++;
-            let holdQueen = element;
-            allCarroms = allCarroms.filter((carrom) => carrom != element);
-
-            setTimeout(() => {
-              holdQueen.vx = 0;
-              holdQueen.vy = 0;
-              holdQueen.xPos = 300;
-              holdQueen.yPos = 300;
-              allCarroms.push(holdQueen);
-            }, 4000);
-          }
-        }
-      } else {
-        let holdStriker = element;
-        allCarroms = allCarroms.filter((carrom) => carrom != element);
-        carromPocketd = 0;
-        setTimeout(() => {
-          holdStriker.vx = 0;
-          holdStriker.vy = 0;
-          allCarroms.push(holdStriker);
-        }, 5000);
-      }
-    }
-  });
-};
-
-/**Function to check if a carrom is pocketed following the rules of the game mode Points Game
- */
-let checkPocketsForPointsGame = () => {
-  allCarroms.forEach((element) => {
-    if (
-      (element.xPos < 2 * pocketRadius && element.yPos < 2 * pocketRadius) ||
-      (element.xPos < 2 * pocketRadius &&
-        element.yPos > canvas.height - 2 * pocketRadius) ||
-      (element.xPos > canvas.width - 2 * pocketRadius &&
-        element.yPos < 2 * pocketRadius) ||
-      (element.xPos > canvas.width - 2 * pocketRadius &&
-        element.yPos > canvas.height - 2 * pocketRadius)
-    ) {
-      if (element.id != 0) {
-        if (element.id != 1) {
-          allCarroms = allCarroms.filter((carrom) => carrom != element);
-          element.id == 2
-            ? (activePlayer.score += 5)
-            : (activePlayer.score += 10);
-
-          carromPocketd++;
-        } else if ((element.id = 1)) {
-          if (allCarroms.length == 2) {
-            allCarroms = allCarroms.filter((carrom) => carrom != element);
-            activePlayer.score += 20;
-            //console.log("Game over");
-            setTimeout(() => {
-              gameOver();
-            }, 1000);
-            carromPocketd++;
-          } else {
-            carromPocketd++;
-            let holdQueen = element;
-            allCarroms = allCarroms.filter((carrom) => carrom != element);
-
-            setTimeout(() => {
-              holdQueen.vx = 0;
-              holdQueen.vy = 0;
-              holdQueen.xPos = 300;
-              holdQueen.yPos = 300;
-              allCarroms.push(holdQueen);
-            }, 4000);
-          }
-        }
-      } else {
-        let holdStriker = element;
-        allCarroms = allCarroms.filter((carrom) => carrom != element);
-        carromPocketd = 0;
-        setTimeout(() => {
-          holdStriker.vx = 0;
-          holdStriker.vy = 0;
-          allCarroms.push(holdStriker);
-        }, 5000);
-      }
-    }
-  });
-};
-
 /**
  * @function
  * @param {number} id - id of the carrom to be counted
@@ -216,6 +81,8 @@ let gameOver = () => {
   winner.innerHTML = checkWinner();
   popUpForGameOver.style.display = "block";
   powerMeter.style.display = "none";
+  powerText.style.display = "none";
+  clapSound.play();
 };
 
 /**
@@ -228,4 +95,70 @@ let checkWinner = () => {
     ? (gameWinner = players[0].playerName)
     : (gameWinner = players[1].playerName);
   return gameWinner + " Won";
+};
+
+/**
+ * @function - to calculate the angle between striker position and passed position
+ *              when striker is on the top side
+ * @param {number} x - position along x-axis
+ * @param {number} y - position along y-axis
+ * @returns - angle between striker and position
+ */
+let calcAngleForStrike1 = (x, y) => {
+  let angle = Math.atan((y - striker.yPos) / (x - striker.xPos));
+  if (angle > 0) {
+    return Math.PI + Math.abs(angle);
+  } else {
+    return 2 * Math.PI - Math.abs(angle);
+  }
+};
+
+/**
+ * @function - to calculate the angle between striker position and passed position
+ *              when striker is on the bottom side
+ * @param {number} x - position along x-axis
+ * @param {number} y - position along y-axis
+ * @returns - angle between striker and position
+ */
+let calcAngleForStrike2 = (x, y) => {
+  let angle = Math.atan((y - striker.yPos) / (x - striker.xPos));
+  if (angle < 0) {
+    return Math.PI - Math.abs(angle);
+  } else {
+    return angle;
+  }
+};
+
+/**
+ * @function - to calculate the distance between pocket and carrom
+ * @param {object} pocket - pocket to calculate distance from
+ * @param {object} carrom - carrom to calculate distance for
+ * @returns - distance between pocket and carrom
+ */
+let calcDistanceFromPocket = (pocket, carrom) => {
+  differenceInXcoordinate = pocket.x - carrom.xPos;
+  differenceInYcoordinate = pocket.y - carrom.yPos;
+  let distanceFromPocket = Math.sqrt(
+    differenceInXcoordinate * differenceInXcoordinate +
+      differenceInYcoordinate * differenceInYcoordinate
+  );
+  return distanceFromPocket;
+};
+
+/**
+ * Function to restart the game
+ * resets all carrom state to initial states
+ * resets players changes and restarts the game
+ */
+let restartGame = () => {
+  clearInterval(gameLoop);
+  allCarroms = allCarromsInitialStates;
+  allCarroms.forEach((element) => {
+    element.xPos = element.initialPositionX;
+    element.yPos = element.initialPositionY;
+    element.vx = element.vy = 0;
+  });
+  players[0].score = 0;
+  players[1].score = 0;
+  startGame();
 };

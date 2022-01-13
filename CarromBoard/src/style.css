@@ -53,6 +53,10 @@ button {
   display: block;
   font-size: 15vh;
 }
+#powerText {
+  position: absolute;
+  display: none;
+}
 
 #powerMeter {
   position: absolute;
@@ -90,4 +94,54 @@ button {
   position: absolute;
   overflow: hidden;
   background-image: url(../images/blackboard.jpg);
+}
+
+.btn-holder {
+  position: absolute;
+  right: 70px;
+  bottom: 0px;
+  transform: rotate(90deg);
+  display: none;
+}
+.btn-holder1 {
+  transform: rotate(90deg);
+}
+.mini-btn {
+  width: 60px;
+  height: 60px;
+}
+.home {
+  background: url("../images/home.png");
+  background-size: contain;
+  transform: rotate(-90deg);
+}
+.help {
+  background: url("../images/help.png");
+  background-size: contain;
+  transform: rotate(-90deg);
+}
+.restart {
+  background: url("../images/restart.png");
+  background-size: contain;
+  transform: rotate(-90deg);
+}
+
+.btn-right {
+  position: absolute;
+  margin-left: 1vh;
+  margin-top: 20vh;
+  right: 0;
+  height: 15vh;
+}
+.btn-left {
+  position: absolute;
+  margin-left: 10vh;
+  margin-top: 0px;
+  height: 15vh;
+}
+#displayGameMode {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 4vh;
 }

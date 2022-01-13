@@ -31,7 +31,7 @@ let botPossibleMoveForBlackAndWhite = () => {
           elementWithShortestDistance = element;
         }
       });
-      return calcAngleForStrike(
+      return calcAngleForStrike1(
         elementWithShortestDistance.xPos,
         elementWithShortestDistance.yPos
       );
@@ -47,19 +47,19 @@ let botPossibleMoveForBlackAndWhite = () => {
         ? (dummyX = 300 + Math.abs(300 - carromToStrike.xPos) / 2)
         : (dummyX = 300 - Math.abs(300 - carromToStrike.xPos) / 2);
 
-      return calcAngleForStrike(dummyX, canvas.height);
+      return calcAngleForStrike1(dummyX, canvas.height);
     }
   }
   if (queen.yPos > 100) {
-    return calcAngleForStrike(queen.xPos, queen.yPos);
+    return calcAngleForStrike1(queen.xPos, queen.yPos);
   } else {
     if (queen.xPos >= 300) {
-      return calcAngleForStrike(
+      return calcAngleForStrike1(
         300 + Math.abs(300 - queen.xPos) / 2,
         canvas.height
       );
     } else {
-      return calcAngleForStrike(
+      return calcAngleForStrike1(
         300 - Math.abs(300 - queen.xPos) / 2,
         canvas.height
       );
@@ -96,7 +96,7 @@ let botPossibleMoveForPointsGame = () => {
         }
       });
 
-      return calcAngleForStrike(
+      return calcAngleForStrike1(
         elementWithShortestDistance.xPos,
         elementWithShortestDistance.yPos
       );
@@ -110,38 +110,7 @@ let botPossibleMoveForPointsGame = () => {
         ? (dummyX = 300 + Math.abs(300 - carromToStrike.xPos) / 2)
         : (dummyX = 300 - Math.abs(300 - carromToStrike.xPos) / 2);
 
-      return calcAngleForStrike(dummyX, canvas.height);
+      return calcAngleForStrike1(dummyX, canvas.height);
     }
-  }
-};
-
-/**
- * @function - to calculate the distance between pocket and carrom
- * @param {object} pocket - pocket to calculate distance from
- * @param {object} carrom - carrom to calculate distance for
- * @returns - distance between pocket and carrom
- */
-let calcDistanceFromPocket = (pocket, carrom) => {
-  differenceInXcoordinate = pocket.x - carrom.xPos;
-  differenceInYcoordinate = pocket.y - carrom.yPos;
-  let distanceFromPocket = Math.sqrt(
-    differenceInXcoordinate * differenceInXcoordinate +
-      differenceInYcoordinate * differenceInYcoordinate
-  );
-  return distanceFromPocket;
-};
-
-/**
- * @function - to calculate the angle between striker position and passed carrom position
- * @param {number} x - position along x-axis
- * @param {number} y - position along y-axis
- * @returns - angle between carrom and position
- */
-let calcAngleForStrike = (x, y) => {
-  let angle = Math.atan((y - striker.yPos) / (x - striker.xPos));
-  if (angle > 0) {
-    return Math.PI + Math.abs(angle);
-  } else {
-    return 2 * Math.PI - Math.abs(angle);
   }
 };
