@@ -1,7 +1,93 @@
 body {
-  background-color: #222738;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-p,
-h2 {
+p {
+  font-family: Chalkfont;
   color: white;
+  font-size: 5vh;
+}
+h3,
+h2,
+h1 {
+  margin-top: 1%;
+  font-family: Chalkfont;
+  color: white;
+
+  text-align: center;
+}
+h3 {
+  font-family: Chalkfont;
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 0;
+}
+#canvas,
+#scoreboard1,
+#scoreboard2 {
+  position: absolute;
+}
+
+button {
+  margin: 5% 20%;
+  font-size: 10vh;
+  border-radius: 20px;
+  background: rgba(158, 200, 235, 0.753);
+  font-family: Chalkfont;
+}
+
+@font-face {
+  font-family: Chalkfont;
+  src: url(../fonts/Chalk-Regular.ttf);
+}
+.page1 {
+  display: block;
+  font-size: 12vh;
+}
+.page2 {
+  display: none;
+  font-size: 12vh;
+}
+.page {
+  display: block;
+  font-size: 15vh;
+}
+
+#powerMeter {
+  position: absolute;
+  transform: rotate(-90deg);
+  width: 200px;
+  height: 50px;
+  display: none;
+}
+
+#display {
+  position: absolute;
+  color: red;
+  display: none;
+}
+
+#popUpForGameOver {
+  position: absolute;
+  text-align: center;
+  padding: 0px;
+  font-size: 50px;
+  border-radius: 20px;
+  display: none;
+}
+
+#score,
+#score2 {
+  font-size: 15vh;
+}
+
+#instructions {
+  text-align: center;
+  display: none;
+  width: 800px;
+  height: 700px;
+  position: absolute;
+  overflow: hidden;
+  background-image: url(../images/blackboard.jpg);
 }

@@ -1,17 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <link rel="stylesheet" href="src/style.css">
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  </head>
-  <body>
-       <p> Player1 Score:<h2 id="score"></h2></p>
-    <p> Player2 Score:<h2 id="score2"></h2></p>
+</head>
+<body>
+     <h1 class="page">Let's Play</h1>
+    <h2 class='page1' id='gameMode'>Choose Game Mode</h2>
+   <button class='page1' id="blackAndWhite">Black And White</button>
+    <button class='page1' id="pointsGame">Points Game</button>
+
+    <h2 class='page2'>Who you wanna play with?</h2>
+    <button class='page2' id='vsPlayer'>Player Vs Player</button>
+    <button class='page2' id='vsBot'>Player Vs Bot</button>
+
+
+    <div id="scoreboard1">
+    <p id="player1Name"><h2 id="score"></h2></p>
+    </div>
+    <div id="scoreboard2">
+    <p id="player2Name"><h2 id="score2"></h2></p>
+    </div>
+    
+    <div>
+    <meter id="powerMeter"  min=0 max=20 title="Power" ></meter>
+    </div>
 
     <canvas id="canvas"></canvas>
+
+    <h2 id="display">testing</h2>
+
+    <script src="src/canvas.js"></script>
+    <div id='popUpForGameOver'>
+        <h2>Game Over</h2>
+        <h3 id='winnerName'></h3>
+    </div>
+    <div id="instructions">
+        <p>Use Space Key to Strike</p>
+        <p>Use Arrow left and Arrow Right Key or click to move striker</p>
+        <p>Use Key 'A' and 'D' to change the angle of the striker to strike</p>
+        <button id= 'continue'>Continue</button>
+    </div>
+    <div>
+        
+    </div>
+    
+    <script src="src/utils.js"></script>
+    <script src="src/variables.js"></script>
+    <script src="src/home.js"></script>
+    <script src="src/pockets.js"></script>
     <script src="src/carrom.js"></script>
-  </body>
+    <script src="src/collision.js"></script>
+    <script src="src/eventListners.js"></script>
+    <script src="src/bot.js"></script>
+    <script src="src/functions.js"></script>
+    <script src="src/players.js"></script>
+    <script src="src/game.js"></script>
+    
+</body>
 </html>
