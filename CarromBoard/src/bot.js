@@ -114,5 +114,3 @@ let botPossibleMoveForPointsGame = () => {
     }
   }
 };
-
-let;
