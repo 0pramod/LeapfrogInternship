@@ -8,12 +8,13 @@
  * @function update -used to update the carroms positions diuring the game
  * @function checkWallCollision - checks carrom collision with the walls of the carrom board
  */
+
 class Carrom {
   constructor(id, xPos, yPos, radius, color) {
     this.initialPositionX = xPos;
     this.initialPositionY = yPos;
     this.id = id;
-    this.angle = (90 * Math.PI) / 180;
+    this.angle = Math.PI / 2;
     this.xPos = xPos;
     this.yPos = yPos;
     this.radius = this.mass = radius;
@@ -36,16 +37,22 @@ class Carrom {
 
   update = () => {
     this.speed = strikerPower;
-    this.vx -= this.vx * 0.01; // to factor in friction
+    this.vx -= this.vx * 0.01;
     this.vy -= this.vy * 0.01;
     this.xPos += this.vx;
     this.yPos += this.vy;
   };
+
+  /**
+   * Function to check carroms collisions with the wall of the board
+   */
   checkWallCollision = () => {
     if (this.xPos <= this.radius) {
       this.vx = -this.vx;
       this.xPos = this.radius;
-    } else if (this.xPos > canvas.width - this.radius) {
+    }
+
+    if (this.xPos > canvas.width - this.radius) {
       this.vx = -this.vx;
       this.xPos = canvas.width - this.radius;
     }
@@ -53,7 +60,9 @@ class Carrom {
     if (this.yPos <= this.radius) {
       this.vy = -this.vy;
       this.yPos = this.radius;
-    } else if (this.yPos >= canvas.height - this.radius) {
+    }
+
+    if (this.yPos >= canvas.height - this.radius) {
       this.vy = -this.vy;
       this.yPos = canvas.height - this.radius;
     }

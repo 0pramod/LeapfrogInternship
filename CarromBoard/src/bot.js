@@ -6,9 +6,9 @@
 let botPossibleMoveForBlackAndWhite = () => {
   let playerCarrom = allCarroms.filter((carrom) => carrom.id == bot.carromId);
   let playerCarromsAfterTheLine = playerCarrom.filter(
-    (carrom) =>
-      carrom.yPos > 100 /** 100 - to prevent from striking below the line */
-  );
+    (carrom) => carrom.yPos > 100
+  ); /** 100 - to prevent from striking below the line */
+
   let playerCarromsBeforeTheLine = playerCarrom.filter(
     (carrom) => carrom.yPos <= 100
   );
@@ -114,3 +114,5 @@ let botPossibleMoveForPointsGame = () => {
     }
   }
 };
+
+let;

@@ -4,10 +4,10 @@ const pocketRadius = 30;
 const carromRadius = 15;
 let canStrike = true;
 
-let strikerCarromId = 0;
-let queenCarromId = 1;
-let blackCarromId = 2;
-let whiteCarromId = 3;
+const strikerCarromId = 0;
+const queenCarromId = 1;
+const blackCarromId = 2;
+const whiteCarromId = 3;
 
 let players;
 let activePlayer;

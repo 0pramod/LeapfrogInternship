@@ -29,7 +29,7 @@ let activateGameModePointsGame = () => {
   }
 };
 
-let something2 = () => {
+let changeStyleOfElements = () => {
   for (let i = 0; i < 3; i++) {
     page2[i].style.display = "none";
   }

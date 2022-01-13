@@ -32,7 +32,7 @@ let checkPocketsForBlackAndWhite = () => {
                 carromRadius,
                 activePlayer.carromColor
               );
-              //console.log("foul");
+              //foul
               setTimeout(() => {
                 allCarroms.push(addCarromForFoul);
               }, 4000);
@@ -42,7 +42,7 @@ let checkPocketsForBlackAndWhite = () => {
           if (activePlayerCarromCount == 0) {
             allCarroms = allCarroms.filter((carrom) => carrom != element);
             activePlayer.score++;
-            //console.log("Game over");
+            //Game over
             setTimeout(() => {
               gameOver();
             }, 1000);
@@ -100,7 +100,7 @@ let checkPocketsForPointsGame = () => {
           if (allCarroms.length == 2) {
             allCarroms = allCarroms.filter((carrom) => carrom != element);
             activePlayer.score += 20;
-            //console.log("Game over");
+            //Game Over
             setTimeout(() => {
               gameOver();
             }, 1000);

@@ -24,12 +24,11 @@ let pocket2 = new Pockets(580, 20);
 let pocket3 = new Pockets(580, 580);
 let pocket4 = new Pockets(20, 580);
 
-/**Finction to draw pocket */
+/**Function to draw pocket */
 let drawPockets = () => {
   pocket1.drawPocket();
   pocket2.drawPocket();
   pocket3.drawPocket();
   pocket4.drawPocket();
 };
-
 drawPockets();

@@ -27,7 +27,7 @@ let startGame = () => {
     if (playType == "playerVsPlayer") {
       checkPockets = checkPocketsForBlackAndWhite;
       botPossibleMove = botPossibleMoveForBlackAndWhite;
-      something2();
+      changeStyleOfElements();
       players = [player1, player2];
       activePlayer = player1;
       opponent = player2;
@@ -35,7 +35,7 @@ let startGame = () => {
     } else if (playType == "playerVsBot") {
       checkPockets = checkPocketsForBlackAndWhite;
       botPossibleMove = botPossibleMoveForBlackAndWhite;
-      something2();
+      changeStyleOfElements();
       players = [player1, bot];
       activePlayer = player1;
       opponent = bot;
@@ -47,7 +47,7 @@ let startGame = () => {
     if (playType == "playerVsPlayer") {
       checkPockets = checkPocketsForPointsGame;
       botPossibleMove = botPossibleMoveForPointsGame;
-      something2();
+      changeStyleOfElements();
       players = [player1, player2];
       activePlayer = player1;
       opponent = player2;
@@ -55,7 +55,7 @@ let startGame = () => {
     } else if (playType == "playerVsBot") {
       checkPockets = checkPocketsForPointsGame;
       botPossibleMove = botPossibleMoveForPointsGame;
-      something2();
+      changeStyleOfElements();
       players = [player1, bot];
       activePlayer = player1;
       opponent = bot;
