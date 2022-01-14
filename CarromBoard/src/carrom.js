@@ -50,25 +50,21 @@ class Carrom {
     if (this.xPos <= this.radius) {
       this.vx = -this.vx;
       this.xPos = this.radius;
-      hitSound.play();
     }
 
     if (this.xPos > canvas.width - this.radius) {
       this.vx = -this.vx;
       this.xPos = canvas.width - this.radius;
-      hitSound.play();
     }
 
     if (this.yPos <= this.radius) {
       this.vy = -this.vy;
       this.yPos = this.radius;
-      hitSound.play();
     }
 
     if (this.yPos >= canvas.height - this.radius) {
       this.vy = -this.vy;
       this.yPos = canvas.height - this.radius;
-      hitSound.play();
     }
   };
 }
