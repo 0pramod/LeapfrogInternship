@@ -22,6 +22,7 @@ document.addEventListener("keydown", (event) => {
   }
   if (event.code == "Space") {
     strike();
+    hitSound.play();
   }
 });
 
@@ -36,12 +37,14 @@ canvas.addEventListener("click", (event) => {
   if (striker.yPos > 500) {
     /** 500- to represent striker position at the bottom side */
     if (mousePositionY < 500) {
+      clickSound.play();
       striker.angle = calcAngleForStrike2(mousePositionX, mousePositionY);
     }
   }
   if (striker.yPos < 100) {
     /** 100- to represent striker position at the top side */
     if (mousePositionY > 100) {
+      clickSound.play();
       striker.angle = calcAngleForStrike1(mousePositionX, mousePositionY);
     }
   }

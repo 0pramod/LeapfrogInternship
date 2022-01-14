@@ -14,15 +14,17 @@ let checkPocketsForBlackAndWhite = () => {
         element.yPos > canvas.height - 2 * pocketRadius)
     ) {
       let activePlayerCarromCount = countPlayerCarrom(activePlayer.carromId);
-      if (element.id != 0) {
-        if (element.id != 1) {
+      if (element.id != strikerCarromId) {
+        if (element.id != queenCarromId) {
           allCarroms = allCarroms.filter((carrom) => carrom != element);
           if (element.id == activePlayer.carromId) {
             activePlayer.score++;
+            scoreSound.play();
             carromPocketd++;
           }
           if (element.id == opponent.carromId) {
             opponent.score++;
+            foulSound.play();
             if (activePlayerCarromCount != 5) {
               activePlayer.score--;
               let addCarromForFoul = new Carrom(
@@ -38,11 +40,12 @@ let checkPocketsForBlackAndWhite = () => {
               }, 4000);
             }
           }
-        } else if ((element.id = 1)) {
+        } else if ((element.id = queenCarromId)) {
           if (activePlayerCarromCount == 0) {
             allCarroms = allCarroms.filter((carrom) => carrom != element);
             activePlayer.score++;
-            //Game over
+            scoreSound.play();
+            //game over
             setTimeout(() => {
               gameOver();
             }, 1000);
@@ -62,6 +65,7 @@ let checkPocketsForBlackAndWhite = () => {
           }
         }
       } else {
+        foulSound.play();
         let holdStriker = element;
         allCarroms = allCarroms.filter((carrom) => carrom != element);
         carromPocketd = 0;
@@ -88,19 +92,21 @@ let checkPocketsForPointsGame = () => {
       (element.xPos > canvas.width - 2 * pocketRadius &&
         element.yPos > canvas.height - 2 * pocketRadius)
     ) {
-      if (element.id != 0) {
-        if (element.id != 1) {
+      if (element.id != strikerCarromId) {
+        if (element.id != queenCarromId) {
           allCarroms = allCarroms.filter((carrom) => carrom != element);
-          element.id == 2
+          element.id == blackCarromId
             ? (activePlayer.score += 5)
             : (activePlayer.score += 10);
 
+          scoreSound.play();
           carromPocketd++;
-        } else if ((element.id = 1)) {
+        } else if ((element.id = queenCarromId)) {
           if (allCarroms.length == 2) {
             allCarroms = allCarroms.filter((carrom) => carrom != element);
             activePlayer.score += 20;
-            //Game Over
+            scoreSound.play();
+            //console.log("Game over");
             setTimeout(() => {
               gameOver();
             }, 1000);
@@ -120,6 +126,7 @@ let checkPocketsForPointsGame = () => {
           }
         }
       } else {
+        foulSound.play();
         let holdStriker = element;
         allCarroms = allCarroms.filter((carrom) => carrom != element);
         carromPocketd = 0;

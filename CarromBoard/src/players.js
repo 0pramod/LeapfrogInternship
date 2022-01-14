@@ -19,6 +19,6 @@ class Player {
   }
 }
 
-let player1 = new Player(1, "Pramod", 2, "black", true, false);
+let player1 = new Player(1, "Player1", 2, "black", true, false);
 let player2 = new Player(2, "Player2", 3, "white", false, false);
 let bot = new Player(2, "The Bot", 3, "white", false, true);

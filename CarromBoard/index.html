@@ -1,68 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="src/style.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="src/style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-     <h1 class="page">Let's Play</h1>
-    <h2 class='page1' id='gameMode'>Choose Game Mode</h2>
-    
-   <button class='page1 btn-left' id="blackAndWhite">Black And White</button>
-    <button class='page1 btn-right' id="pointsGame">Points Game</button>
+  </head>
+  <body>
+    <h1 class="page">Let's Play</h1>
+    <h2 class="page1" id="gameMode">Choose Game Mode</h2>
 
-    <h2 class='page2'>Who you wanna play with?</h2>
-    <button class='page2 btn-left' id='vsPlayer'>Player1 Vs Player2</button>
-    <button class='page2 btn-right' id='vsBot'>Player Vs Bot</button>
+    <button class="page1 btn-left" id="blackAndWhite">Black And White</button>
+    <button class="page1 btn-right" id="pointsGame">Points Game</button>
 
+    <h2 class="page2">Who you wanna play with?</h2>
+    <button class="page2 btn-left" id="vsPlayer">Player1 Vs Player2</button>
+    <button class="page2 btn-right" id="vsBot">Player Vs Bot</button>
 
     <div id="scoreboard1">
-       
-    <p id="player1Name"><h2 id="score"></h2></p>
-     <p id="carromColor1">Your Color: Black</p>
+      <p id="player1Name"></p>
+      <h2 id="score"></h2>
+      <p id="carromColor1">Your Color: Black</p>
     </div>
     <div id="scoreboard2">
-       
-    <p id="player2Name"><h2 id="score2"></h2></p>
-     <p id="carromColor2">Your Color: White</p>
+      <p id="player2Name"></p>
+      <h2 id="score2"></h2>
+      <p id="carromColor2">Your Color: White</p>
     </div>
-    
-    
-    <meter id="powerMeter"  min=0 max=20 title="Power" ></meter>
-    <h2 id="powerText">Power</h2>
-    
 
-   
+    <meter id="powerMeter" min="0" max="20" title="Power"></meter>
+    <h2 id="powerText">Power</h2>
 
     <h2 id="display">testing</h2>
 
     <canvas id="canvas"></canvas>
-    <div id='popUpForGameOver'>
-        <h2>Game Over</h2>
-        <h3 id='winnerName'></h3>
-        <div class="btn-holder1">   
-        <button class="mini-btn restart" id="restart"title="Restart"></button>
-        <a href="index.html"><button class="mini-btn home" id="home" title="Home"></button></a>  
-    </div>
+    <div id="popUpForGameOver">
+      <h2>Game Over</h2>
+      <h3 id="winnerName"></h3>
+      <div class="btn-holder1">
+        <button class="mini-btn restart" id="restart" title="Restart"></button>
+        <a href="index.html"
+          ><button class="mini-btn home" id="home" title="Home"></button
+        ></a>
+      </div>
     </div>
     <div id="instructions">
-        <p>- Use Space Key to Strike</p>
-        <p>- Use Arrow left and Arrow Right Key to move striker</p>
-        <p>- Use Arrow Up and Arrow Down Key to change power of strike</p>
-        <p>- Click on the board where you want to strike</p>
-        <button id= 'continue'>Continue</button>
+      <p>- Use Arrow left and Arrow Right Key to move striker</p>
+      <p>- Use Arrow Up and Arrow Down Key to change power of strike</p>
+      <p>- Click on the board where you want to strike</p>
+      <p>- Use Space Key to Strike</p>
+      <button id="continue">Continue</button>
     </div>
-    <div class="btn-holder" id="btnHolder">   
-        <button class="mini-btn restart" id="restart1" title="Restart"></button>
-        <a href="index.html"><button class="mini-btn home" id="home1" title="Home"></button></a>
-        <button class="mini-btn help" id="help" title="Help"> </button>     
+    <div class="btn-holder" id="btnHolder">
+      <button class="mini-btn restart" id="restart1" title="Restart"></button>
+      <a href="index.html"
+        ><button class="mini-btn home" id="home1" title="Home"></button
+      ></a>
+      <button class="mini-btn help" id="help" title="Help"></button>
     </div>
 
     <h1 id="displayGameMode"></h1>
-     
 
     <script src="src/canvas.js"></script>
     <script src="src/utils.js"></script>
@@ -78,6 +76,5 @@
     <script src="src/bot.js"></script>
     <script src="src/players.js"></script>
     <script src="src/game.js"></script>
-    
-</body>
+  </body>
 </html>

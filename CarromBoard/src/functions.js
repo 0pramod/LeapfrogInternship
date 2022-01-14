@@ -18,6 +18,7 @@ let strike = () => {
   striker.vx = -striker.dx * striker.speed; // striker velocity along x-axis
   striker.vy = -striker.dy * striker.speed; // striker velocity along y-axis
   canStrike = false;
+
   const myTimeout = setTimeout(changeStrikerPosition, 5000);
 };
 
