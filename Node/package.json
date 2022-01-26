@@ -1,0 +1,15 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Testing",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "author": "Pramod",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1"
+  }
+}
