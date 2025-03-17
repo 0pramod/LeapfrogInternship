@@ -9,15 +9,14 @@ function countPlayerCarrom(id) {
   return count;
 }
 
-/**
- * Function to generate striking conditions for the striker and strike
- */
+
 let strike = () => {
   striker.dx = Math.cos(striker.angle);
   striker.dy = Math.sin(striker.angle);
   striker.vx = -striker.dx * striker.speed; // striker velocity along x-axis
   striker.vy = -striker.dy * striker.speed; // striker velocity along y-axis
   canStrike = false;
+  arrowStartX = arrowStartY = arrowEndX = arrowEndY = undefined;
 
   const myTimeout = setTimeout(changeStrikerPosition, 5000);
 };
@@ -145,6 +144,39 @@ let calcDistanceFromPocket = (pocket, carrom) => {
   );
   return distanceFromPocket;
 };
+
+
+function drawArrow(context, fromx, fromy, tox, toy) {
+  context.save();
+
+  const headlen = 10; 
+  const dx = tox - fromx;
+  const dy = toy - fromy;
+  const angle = Math.atan2(dy, dx);
+
+  // Draw the arrow line
+  context.beginPath();
+  context.moveTo(fromx, fromy);
+  context.lineTo(tox, toy);
+  context.strokeStyle = "red"; 
+  context.lineWidth = 2;
+  context.stroke();
+
+  // Draw the arrow head
+  context.beginPath();
+  context.moveTo(tox, toy);
+  context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+  context.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+  context.lineTo(tox, toy);
+  context.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI / 6));
+  context.strokeStyle = "red"; 
+  context.fillStyle = "red"; 
+  context.lineWidth = 2;
+  context.stroke();
+  context.fill();
+
+  context.restore();
+}
 
 /**
  * Function to restart the game

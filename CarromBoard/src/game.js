@@ -79,6 +79,12 @@ function game() {
     element.checkWallCollision();
   });
   checkPockets();
+
+  // Draw the arrow if the positions are set
+  if (arrowStartX !== undefined && arrowStartY !== undefined && arrowEndX !== undefined && arrowEndY !== undefined) {
+    drawArrow(ctx, arrowStartX, arrowStartY, arrowEndX, arrowEndY);
+  }
+
   player1Name.innerHTML = players[0].playerName + " Score:";
   document.getElementById("score").innerHTML = players[0].score;
   player2Name.innerHTML = players[1].playerName + " Score:";
@@ -87,9 +93,28 @@ function game() {
 }
 
 let initiatePlayerVsPlayer = () => {
-  initaiteGamePlayPage();
+
+const playerNameModal = document.getElementById("playerNameModal");
+const player1NameInput = document.getElementById("firstPlayerName");
+const player2NameInput = document.getElementById("secondPlayerName");
+const enterNamesButton = document.getElementById("enterNamesButton");
+playerNameModal.style.display = "flex";
+
+
+enterNamesButton.onclick = () => {
+  const player1Name = player1NameInput.value.trim() || "Player1"; // Default to "Player1" if no name is entered
+  const player2Name = player2NameInput.value.trim() || "Player2"; // Default to "Player2" if no name is entered
+
+  // Update the player names
+  player1.playerName = player1Name;
+  player2.playerName = player2Name;
+
+  // Hide the modal
+  playerNameModal.style.display = "none";
+    initaiteGamePlayPage();
   playType = "playerVsPlayer";
   startGame();
+};
 };
 let initiatePlayerVsBot = () => {
   initaiteGamePlayPage();

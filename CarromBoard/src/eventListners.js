@@ -1,7 +1,3 @@
-/**
- * Event Listeners for different events
- */
-
 document.addEventListener("keydown", (event) => {
   if (canStrike == false) return;
   if (event.code === "ArrowUp") {
@@ -26,12 +22,11 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-/**
- * Event listners for calculating direction of striker movement
- */
+let arrowStartX, arrowStartY, arrowEndX, arrowEndY;
+
 canvas.addEventListener("click", (event) => {
   let mousePositionX =
-    event.clientX - canvasLeftPosition - 20; /** 20- for canvas border*/
+    event.clientX - canvasLeftPosition - 20;
   let mousePositionY = event.clientY - canvasTopPosition - 20;
   if (canStrike == false) return;
   if (striker.yPos > 500) {
@@ -39,6 +34,10 @@ canvas.addEventListener("click", (event) => {
     if (mousePositionY < 500) {
       clickSound.play();
       striker.angle = calcAngleForStrike2(mousePositionX, mousePositionY);
+      arrowStartX = striker.xPos;
+      arrowStartY = striker.yPos;
+      arrowEndX = mousePositionX;
+      arrowEndY = mousePositionY
     }
   }
   if (striker.yPos < 100) {
@@ -46,6 +45,10 @@ canvas.addEventListener("click", (event) => {
     if (mousePositionY > 100) {
       clickSound.play();
       striker.angle = calcAngleForStrike1(mousePositionX, mousePositionY);
+      arrowStartX = striker.xPos;
+      arrowStartY = striker.yPos;
+      arrowEndX = mousePositionX;
+      arrowEndY = mousePositionY;
     }
   }
 });
